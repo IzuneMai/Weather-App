@@ -22,6 +22,8 @@ search.addEventListener('click', () => {
                 weatherDetails.style.display = 'none';
                 error404.style.display = 'block';
                 error404.classList.add('fadeIn');
+                void error404.offsetWidth; // Для перезапуска анимации
+                error404.classList.add('fadeIn');
                 return;
             }
 
@@ -33,6 +35,14 @@ search.addEventListener('click', () => {
             const description = document.querySelector('.weather-box .description');
             const humidity = document.querySelector('.weather-details .humidity span');
             const wind = document.querySelector('.weather-details .wind span');
+
+            if (!json || !json.weather || !json.weather[0]) {
+                console.error('Нет данных о погоде');
+                showError(); // Ваша функция показа ошибки
+                description.innerHTML = 'Нет данных';
+                return; // Выходим, чтобы не выполнять switch
+            }
+
 
             switch (json.weather[0].main) {
                 case 'Clear':
@@ -69,8 +79,6 @@ search.addEventListener('click', () => {
             weatherBox.classList.add('fadeIn');
             weatherDetails.classList.add('fadeIn');
             container.style.height = '590px';
-
-
         });
 
 
