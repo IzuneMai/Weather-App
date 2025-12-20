@@ -22,7 +22,7 @@ search.addEventListener('click', () => {
                 weatherDetails.style.display = 'none';
                 error404.style.display = 'block';
                 error404.classList.add('fadeIn');
-                void error404.offsetWidth; // Для перезапуска анимации
+                void error404.offsetWidth;
                 error404.classList.add('fadeIn');
                 return;
             }
@@ -38,9 +38,9 @@ search.addEventListener('click', () => {
 
             if (!json || !json.weather || !json.weather[0]) {
                 console.error('Нет данных о погоде');
-                showError(); // Ваша функция показа ошибки
+                showError();
                 description.innerHTML = 'Нет данных';
-                return; // Выходим, чтобы не выполнять switch
+                return;
             }
 
 
