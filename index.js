@@ -61,7 +61,7 @@ search.addEventListener('click', () => {
                     image.src = 'images/cloud.png';
                     break;
 
-                case 'Haze':
+                case 'Mist':
                     image.src = 'images/mist.png';
                     break;
 
